@@ -1,0 +1,66 @@
+<div class="flex flex-row  justify-center my-8">
+  Agendamento de consultas
+</div>
+
+<form [formGroup]="formConsulta" class="w-full ">
+
+  <div class="flex flex-row gap-4 w-full py-2 ">
+
+    <mat-form-field class="w-full" appearance="outline">
+      <input mask="000.000.000-00" formControlName='cpf' matInput placeholder="CPF">
+    </mat-form-field>
+
+    <div>
+      <button (click)="show()" mat-fab color="accent" aria-label="CPF">
+        <mat-icon>bookmark</mat-icon>
+      </button>
+    </div>
+  </div>
+
+</form>
+
+
+
+
+
+
+<form [formGroup]="formulario" class="w-full ">
+
+  <div class="flex flex-row gap-4 w-full py-2 ">
+
+    <mat-form-field class="w-full" appearance="outline">
+      <input formControlName='nome' matInput placeholder="Nome do beneficiario">
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-select placeholder="Selecione" formControlName="especialidade" required>
+        <mat-option>-- None --</mat-option>
+        <mat-option *ngFor="let item of listaEspecialidade"
+          [value]=item.codigo>{{item.nm_especialidade}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-row gap-4 w-full py-2 ">
+
+    <mat-form-field class="w-full" appearance="outline">
+      <input matInput formControlName='data' [matDatepicker]="picker" [min]='minDate' placeholder="Data">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <input mask="Hh:m0" formControlName='hora' matInput placeholder="hora">
+
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-row items-center justify-end py-2">
+    <button (click)="save()"
+      class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+      type="button">
+      Salvar
+    </button>
+
+  </div>
+</form>

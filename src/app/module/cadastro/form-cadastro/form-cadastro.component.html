@@ -1,0 +1,32 @@
+<div class="flex flex-row  justify-center my-8">
+Cadastro de beneficiário
+</div>
+<form [formGroup]="formulario" class="w-full ">
+
+  <div class="flex flex-row items-center  py-2 ">
+    <mat-form-field class="w-full" appearance="outline">
+      <input matInput placeholder="Nome do beneficiario" formControlName='nome' maxlength="55">
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-row items-center gap-4 py-2">
+    <mat-form-field class="w-3/6" appearance="outline">
+      <input mask="000.000.000-00" formControlName='cpf' matInput placeholder="CPF">
+    </mat-form-field>
+
+    <mat-form-field class="w-3/6 " appearance="outline">
+      <input matInput formControlName='data_nascimento'  [matDatepicker]="picker" [max]="maxDate" placeholder="Data de nascimento">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-row items-center justify-end py-2">
+    <button (click)="save()"
+      class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+      type="button">
+      Salvar
+    </button>
+
+  </div>
+</form>

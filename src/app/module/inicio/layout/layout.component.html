@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Projeto Angular</title>
+</head>
+
+<body class="flex flex-col  w-full">
+  <header class="bg-blue-500 h-40 flex items-center justify-center text-4xl">
+    Operação saude
+  </header>
+
+  <nav class="flex items-center  flex-col bg-teal-500 p-6">
+
+
+    <div class="flex flex-row w-full items-center justify-between ">
+
+      <div class="flex flex-row gap-4">
+        <button  id="dropdownBeneficiarios"
+          data-dropdown-toggle="btnDropdownBeneficiarios"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">Beneficiarios <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 4 4 4-4" />
+          </svg>
+        </button>
+
+        <button id="dropdownConsultas" data-dropdown-toggle="btnDropdownConsultas"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">Consultas <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 4 4 4-4" />
+          </svg>
+        </button>
+      </div>
+
+      <div>
+        <button [routerLink]="['/']" routerLinkActive="router-link-active"  id="dropdownConsultas"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          type="button">Home
+        </button>
+      </div>
+
+
+    </div>
+
+  </nav>
+
+    <div class="flex flex-col w-full p-4">
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+
+  <div id="btnDropdownBeneficiarios"
+    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+      <li>
+        <a [routerLink]="['/cadastro']"  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cadastro</a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div id="btnDropdownConsultas"
+    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+      <li>
+        <a [routerLink]="['/consulta']"  href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Consulta</a>
+      </li>
+
+    </ul>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  frontend-sulamerica:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend-sulamerica
+    ports:
+      - '4200:80'
+      - '8443:443'
+    restart: always
